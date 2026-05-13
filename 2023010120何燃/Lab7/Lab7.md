@@ -324,7 +324,7 @@ sudo ip netns exec lan python3 firewall_lab7_client.py 192.0.2.2 38070
 | `fw` 内侧 IP 地址 | 10.0.0.1 |
 | `fw` 外侧 IP 地址 | 192.0.2.1 |
 | `wan` 的 IP 地址 | 192.0.2.2 |
-| `lan` 的默认网关 | 10.0.0.0 |
+| `lan` 的默认网关 | 10.0.0.1|
 | 初始访问是否成功 | 是 |
 
 ![拓扑验证](topology.png)
@@ -580,7 +580,7 @@ sudo ip netns exec fw conntrack -L
 | :--- | :--- |
 | 条目中的源地址和源端口（原始方向） | 10.0.0.2:51316 |
 | 条目中的目的地址和目的端口 | 192.0.2.2:38070 |
-| 连接状态（`-E` 中看到的 `[UPDATE]` 行） | `[UPDATE] tcp      6 60 SYN_RECV src=10.0.0.2 dst=192.0.2.2 sport=51316 dport=38070 src=192.0.2.2 dst=10.0.0.2 sport=38070 dport=51316` |
+| 连接状态（`-E` 中看到的 `[UPDATE]` 行） | `[UPDATE] tcp      6 60 ESTABLISHED src=10.0.0.2 dst=192.0.2.2 sport=51316 dport=38070 src=192.0.2.2 dst=10.0.0.2 sport=38070 dport=51316` |
 
 简答题：
 
